@@ -153,3 +153,6 @@ df_pca = pca.transform(scaled_data)[:, :n_components_to_keep]
 
 print(f"Reduced data using {n_components_to_keep} principal components.")
 
+# comments
+
+print("Hello")
