@@ -17,8 +17,8 @@ def plot_pfr_profile(F0, r, C0, X_target):
     V_values = pfr_volume(F0, r, C0, X_values)
     
     # plt.plot(V_values, X_values, label='PFR Conversion Profile')
-    # plt.xlabel('Reactor Volume (L)')
-    # plt.ylabel('Conversion X')
+    plt.xlabel('Reactor Volume (L)')
+    plt.ylabel('Conversion X')
     # plt.title('PFR Conversion Profile')
     # plt.grid(True)
     # plt.legend()
