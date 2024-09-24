@@ -56,7 +56,7 @@ st.write(f'PFR Volume: {V_pfr:.2f} L')
 
 # Plotting conversion profiles
 st.subheader('Conversion Profiles')
-plot_pfr_profile(F0, r, C0, X_target)
+# plot_pfr_profile(F0, r, C0, X_target)
 plot_cstr_profile(F0, r, C0, X_target)
 
 # Conclusion
