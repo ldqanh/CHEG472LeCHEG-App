@@ -1,38 +1,27 @@
-import streamlit as st
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.integrate import quad
-
 # Reactor volume for CSTR
 def cstr_volume(F0, r, C0, X):
-    return F0 * X / (-r) 
+    return F0 * X / (-r)
 
 # Reactor volume for PFR
 def pfr_volume(F0, r, C0, X):
     return F0 / (-r * C0) * (-np.log(1 - X))
 
-# Plot the conversion profile for PFR
-def plot_pfr_profile(F0, r, C0, X_target):
-    X_values = np.linspace(0, X_target, 100)
-    V_values = pfr_volume(F0, r, C0, X_values)
-    
-    plt.plot(V_values, X_values, label='PFR Conversion Profile')
-    plt.xlabel('Reactor Volume (L)')
-    plt.ylabel('Conversion X')
-    plt.title('PFR Conversion Profile')
-    plt.grid(True)
-    plt.legend()
-    st.pyplot(plt.gcf())
-
-# Plot the conversion as a function of reactor volume for CSTR
-def plot_cstr_profile(F0, r, C0, X_target):
+# Plot both PFR and CSTR on the same plot
+def plot_combined_profile(F0, r, C0, X_target):
     X_values = np.linspace(0.01, X_target, 100)
-    V_values = cstr_volume(F0, r, C0, X_values)
-    
-    plt.plot(V_values, X_values, label='CSTR Conversion Profile', color='orange')
+
+    # PFR values
+    V_pfr_values = pfr_volume(F0, r, C0, X_values)
+    plt.plot(V_pfr_values, X_values, label='PFR Conversion Profile')
+
+    # CSTR values
+    V_cstr_values = cstr_volume(F0, r, C0, X_values)
+    plt.plot(V_cstr_values, X_values, label='CSTR Conversion Profile', color='orange')
+
+    # Set labels and title
     plt.xlabel('Reactor Volume (L)')
     plt.ylabel('Conversion X')
-    plt.title('CSTR Conversion Profile')
+    plt.title('PFR vs CSTR Conversion Profile')
     plt.grid(True)
     plt.legend()
     st.pyplot(plt.gcf())
@@ -54,10 +43,9 @@ st.subheader('Reactor Volume Calculations')
 st.write(f'CSTR Volume: {V_cstr:.2f} L')
 st.write(f'PFR Volume: {V_pfr:.2f} L')
 
-# Plotting conversion profiles
+# Plotting combined conversion profiles
 st.subheader('Conversion Profiles')
-plot_pfr_profile(F0, r, C0, X_target)
-plot_cstr_profile(F0, r, C0, X_target)
+plot_combined_profile(F0, r, C0, X_target)
 
 # Conclusion
 st.subheader('Comparison of CSTR and PFR')
