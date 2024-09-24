@@ -5,14 +5,10 @@ from scipy.integrate import quad
 
 # Reactor volume for CSTR
 def cstr_volume(F0, r, C0, X):
-    if X == 1:
-        return np.inf  # Avoid division by zero
     return F0 * X / (-r) 
 
 # Reactor volume for PFR
 def pfr_volume(F0, r, C0, X):
-    if X == 1:
-        return np.inf  # Avoid taking log of zero
     return F0 / (-r * C0) * (-np.log(1 - X))
 
 # Plot the conversion profile for PFR
