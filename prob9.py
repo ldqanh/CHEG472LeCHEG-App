@@ -16,13 +16,13 @@ def plot_pfr_profile(F0, r, C0, X_target):
     X_values = np.linspace(0, X_target, 100)
     V_values = pfr_volume(F0, r, C0, X_values)
     
-    plt.plot(V_values, X_values, label='PFR Conversion Profile')
-    plt.xlabel('Reactor Volume (L)')
-    plt.ylabel('Conversion X')
-    plt.title('PFR Conversion Profile')
-    plt.grid(True)
-    plt.legend()
-    st.pyplot(plt.gcf())
+    # plt.plot(V_values, X_values, label='PFR Conversion Profile')
+    # plt.xlabel('Reactor Volume (L)')
+    # plt.ylabel('Conversion X')
+    # plt.title('PFR Conversion Profile')
+    # plt.grid(True)
+    # plt.legend()
+    # st.pyplot(plt.gcf())
 
 # Plot the conversion as a function of reactor volume for CSTR
 def plot_cstr_profile(F0, r, C0, X_target):
@@ -56,7 +56,7 @@ st.write(f'PFR Volume: {V_pfr:.2f} L')
 
 # Plotting conversion profiles
 st.subheader('Conversion Profiles')
-# plot_pfr_profile(F0, r, C0, X_target)
+plot_pfr_profile(F0, r, C0, X_target)
 plot_cstr_profile(F0, r, C0, X_target)
 
 # Conclusion
