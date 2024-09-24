@@ -1,28 +1,6 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
-import sys
-import os
-
-# Check the Python version
-python_version = sys.version_info
-python_major_version = python_version.major
-python_minor_version = python_version.minor
-
-# Define package versions based on Python version
-requirements = [
-    "streamlit",
-    "numpy",
-    "pandas",
-    f"matplotlib>=3.4.0; python_version>='3.{python_minor_version}'",
-]
-
-# Write the requirements to a file
-with open("requirements.txt", "w") as file:
-    for requirement in requirements:
-        file.write(requirement + "\n")
-
-print(f"requirements.txt file has been updated for Python {python_major_version}.{python_minor_version}")
 
 # Function to calculate the dissolved oxygen level iteratively
 def calculate_do(do, t, otr, consumption_rate):
