@@ -20,9 +20,9 @@ def plot_pfr_profile(F0, r, C0, X_target):
     plt.xlabel('Reactor Volume (L)')
     plt.ylabel('Conversion X')
     # plt.title('PFR Conversion Profile')
-    # plt.grid(True)
-    # plt.legend()
-    # st.pyplot(plt.gcf())
+    plt.grid(True)
+    plt.legend()
+    st.pyplot(plt.gcf())
 
 # Plot the conversion as a function of reactor volume for CSTR
 def plot_cstr_profile(F0, r, C0, X_target):
