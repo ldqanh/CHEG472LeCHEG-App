@@ -1,3 +1,8 @@
+import streamlit as st
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import quad
+
 # Reactor volume for CSTR
 def cstr_volume(F0, r, C0, X):
     return F0 * X / (-r)
